@@ -9,8 +9,8 @@ public class BaseTest {
 
     @BeforeMethod
     @Parameters("browser")
-    public void setup(@Optional("chrome") String browser) {
-        DriverFactory.initDriver(browser);
+    public void setup(@Optional("chrome") String browser) throws Exception {
+        DriverFactory.createDriver(browser);
         DriverManager.getDriver().get(ConfigManager.get("baseUrl"));
     }
 
