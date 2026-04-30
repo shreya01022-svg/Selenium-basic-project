@@ -18,11 +18,16 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17'
+          java-version: '25'
+
+      - name: Install Allure
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y allure
 
       - name: Start Selenium Grid (Docker)
         run: |
-          docker-compose up -d
+          docker compose up -d
 
       - name: Wait for Grid to be ready
         run: |
@@ -49,4 +54,4 @@ jobs:
 
       - name: Stop Docker
         if: always()
-        run: docker-compose down
+        run: docker compose down
