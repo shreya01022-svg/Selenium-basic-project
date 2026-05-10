@@ -1,6 +1,8 @@
 package org.example.tests;
 
+import org.example.models.LoginData;
 import org.example.pages.LoginPage;
+import org.example.utils.TestDataProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
@@ -11,11 +13,12 @@ public class LoginTest extends BaseTest {
 
     private static final Logger log =
             LoggerFactory.getLogger(LoginTest.class);
-    @Test
-    public void testLogin() {
+
+    @Test(dataProvider = "loginData", dataProviderClass = TestDataProvider.class)
+    public void testLogin(LoginData data) {
         log.info("Starting login test");
         LoginPage page = new LoginPage();
-        page.clickOnLogin("student", "Password123");
+        page.clickOnLogin(data.username, data.password);
         Assert.assertTrue(true);
     }
 

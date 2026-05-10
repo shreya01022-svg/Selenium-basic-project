@@ -1,0 +1,11 @@
+[
+  {
+    "username": "student",
+    "password": "Password123",
+    "profile": {
+      "age": 25,
+      "city": "Hyderabad"
+    },
+    "roles": ["admin", "user"]
+  }
+]
